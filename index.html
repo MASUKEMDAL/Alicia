@@ -1,128 +1,305 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossa História ❤️</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nossa Historia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- TOPO -->
-    <header class="hero">
-        <h1>❤️ Nossa História ❤️</h1>
-        <p>
-            Cada momento ao seu lado se tornou uma lembrança
-            inesquecível.
-        </p>
-    </header>
+  <!-- ===== SPLASH SCREEN ===== -->
+  <div class="splash" id="splash">
+    <div class="splash-particles" id="splashParticles"></div>
+    <div class="splash-content">
+      <div class="splash-heart-wrap">
+        <svg class="splash-heart" viewBox="0 0 100 90" fill="none">
+          <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C36 5 44 10 50 18 C56 10 64 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z" fill="#1DB954"/>
+        </svg>
+      </div>
+      <h1 class="splash-title">Nossa Historia</h1>
+      <p class="splash-sub">Um presente especial para voce</p>
+      <button class="splash-btn" id="splashBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Abrir Presente
+      </button>
+    </div>
+  </div>
 
-    <!-- FOTO PRINCIPAL -->
-    <section class="main-photo">
-        <img src="imagens/1.jpeg" alt="Casal">
+  <!-- ===== MAIN SITE ===== -->
+  <div class="site" id="site">
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <div class="nav-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Nossa Historia
+      </div>
+      <div class="nav-counter" id="navCounter">...</div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="imagens/1.jpeg" alt="Casal" class="hero-img" />
+        <div class="hero-vignette"></div>
+      </div>
+      <div class="hero-body">
+        <span class="hero-chip">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Presente de Aniversario
+        </span>
+        <h1 class="hero-title">Nossa<br/>Historia</h1>
+        <p class="hero-desc">Cada momento ao seu lado se tornou uma lembranca inesquecivel.</p>
+        <div class="hero-stats">
+          <div class="hstat">
+            <span class="hstat-n">19</span>
+            <span class="hstat-l">Fotos</span>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat">
+            <span class="hstat-n">4</span>
+            <span class="hstat-l">Momentos</span>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat">
+            <span class="hstat-n" id="heroYears">?</span>
+            <span class="hstat-l">Anos juntos</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Role para ver</span>
+        <div class="scroll-caret"></div>
+      </div>
     </section>
 
     <!-- PLAYER -->
-    <section class="spotify-player">
-
-        <div class="album-cover">
-            <img src="img/casal-principal.jpg" alt="">
+    <section class="player-sec">
+      <div class="player-card">
+        <!-- vinyl -->
+        <div class="vinyl-wrap">
+          <div class="vinyl" id="vinyl">
+            <div class="vinyl-ring r1"></div>
+            <div class="vinyl-ring r2"></div>
+            <div class="vinyl-ring r3"></div>
+            <div class="vinyl-hub">
+              <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            </div>
+          </div>
         </div>
+        <!-- info -->
+        <div class="player-info">
+          <div class="now-playing-row">
+            <span class="np-dot" id="npDot"></span>
+            <span class="np-label">Tocando agora</span>
+          </div>
+          <h2 class="player-track">Saturno</h2>
+          <p class="player-artist">BIN ft. Mainstreet, Ajaxx</p>
 
-        <div class="music-info">
-            <h3>Nossa Música</h3>
-            <p>Artista</p>
+          <div class="progress-row">
+            <span class="ptime" id="tCur">0:00</span>
+            <div class="prog-bar" id="progBar">
+              <div class="prog-fill" id="progFill"></div>
+              <div class="prog-thumb" id="progThumb"></div>
+            </div>
+            <span class="ptime" id="tTot">0:00</span>
+          </div>
+
+          <div class="ctrl-row">
+            <button class="ctrl ctrl-sm" id="btnShuffle" title="Repetir">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+            </button>
+            <button class="ctrl ctrl-md" id="btnPrev">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+            </button>
+            <button class="ctrl ctrl-play" id="btnPlay">
+              <svg class="ico-play" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <svg class="ico-pause" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+            <button class="ctrl ctrl-md" id="btnNext">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+            </button>
+            <button class="ctrl ctrl-sm ctrl-heart" id="btnHeart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+          </div>
+
+          <div class="vol-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <input type="range" class="vol-slider" id="volSlider" min="0" max="100" value="70" />
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </div>
         </div>
-
-        <button id="playBtn">▶</button>
-
-        <audio id="audio">
-            <source src="https://www.youtube.com/watch?v=VF97zz_5oCc&list=RDVF97zz_5oCc&start_radio=1" type="audio/mpeg">
-        </audio>
-
+      </div>
+      <!-- YouTube player hidden -->
+      <iframe id="ytFrame" data-src="https://www.youtube.com/embed/HRwzG5mKPoE?enablejsapi=1&autoplay=0&controls=0&loop=1&playlist=HRwzG5mKPoE" src="about:blank" allow="autoplay; encrypted-media" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" title="Saturno BIN"></iframe>
     </section>
 
-    <!-- GALERIA -->
-    <section class="gallery">
-
-        <h2>Nossos Momentos 📸</h2>
-
-        <div class="gallery-grid">
-            <img src="imagens/2.jpeg">
-            <img src="imagens/3.jpeg">
-            <img src="imagens/4.jpeg">
-            <img src="imagens/5.jpeg">
-            <img src="imagens/6.jpeg">
-            <img src="imagens/7.jpeg">
-            <img src="imagens/8.jpeg">
+    <!-- COUNTER -->
+    <section class="counter-sec">
+      <div class="counter-card">
+        <svg class="counter-heart" viewBox="0 0 100 90" fill="none">
+          <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C36 5 44 10 50 18 C56 10 64 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z" fill="#1DB954"/>
+        </svg>
+        <p class="counter-label">Estamos juntos ha</p>
+        <div class="counter-blocks">
+          <div class="cblock">
+            <span class="cnum" id="cY">0</span>
+            <span class="clbl">anos</span>
+          </div>
+          <span class="csep">:</span>
+          <div class="cblock">
+            <span class="cnum" id="cM">0</span>
+            <span class="clbl">meses</span>
+          </div>
+          <span class="csep">:</span>
+          <div class="cblock">
+            <span class="cnum" id="cD">0</span>
+            <span class="clbl">dias</span>
+          </div>
         </div>
-
+        <div class="counter-time">
+          <span id="cH">00</span>h&nbsp;<span id="cMin">00</span>m&nbsp;<span id="cS">00</span>s
+        </div>
+      </div>
     </section>
 
-    <!-- MENSAGEM -->
-    <section class="message">
+    <!-- GALLERY -->
+    <section class="gallery-sec">
+      <div class="sec-header">
+        <h2 class="sec-title">Nossos Momentos</h2>
+        <p class="sec-sub">Fotos que contam a nossa historia</p>
+      </div>
 
-        <h2>Uma Mensagem Para Você ❤️</h2>
+      <!-- Featured + side -->
+      <div class="gal-top">
+        <div class="gal-featured" data-li="0">
+          <img src="imagens/1.jpeg" alt="foto 1" loading="lazy"/>
+          <div class="gal-ov"><svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
+        </div>
+        <div class="gal-side">
+          <div class="gal-item" data-li="1"><img src="imagens/2.jpeg" alt="foto 2" loading="lazy"/><div class="gal-ov"></div></div>
+          <div class="gal-item" data-li="2"><img src="imagens/3.jpeg" alt="foto 3" loading="lazy"/><div class="gal-ov"></div></div>
+          <div class="gal-item" data-li="3"><img src="imagens/4.jpeg" alt="foto 4" loading="lazy"/><div class="gal-ov"></div></div>
+          <div class="gal-item" data-li="4"><img src="imagens/5.jpeg" alt="foto 5" loading="lazy"/><div class="gal-ov"></div></div>
+        </div>
+      </div>
 
-        <p>
-            Desde o dia em que nos encontramos,
-            minha vida ficou mais bonita.
+      <div class="gal-strip">
+        <div class="gal-item" data-li="5"><img src="imagens/6.jpeg" alt="foto 6" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="6"><img src="imagens/7.jpeg" alt="foto 7" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="7"><img src="imagens/8.jpeg" alt="foto 8" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="8"><img src="imagens/9.jpeg" alt="foto 9" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="9"><img src="imagens/10.jpeg" alt="foto 10" loading="lazy"/><div class="gal-ov"></div></div>
+      </div>
 
-            Você trouxe amor, felicidade e momentos
-            que jamais esquecerei.
+      <div class="gal-strip">
+        <div class="gal-item" data-li="10"><img src="imagens/11.jpeg" alt="foto 11" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="11"><img src="imagens/12.jpeg" alt="foto 12" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="12"><img src="imagens/13.jpeg" alt="foto 13" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="13"><img src="imagens/14.jpeg" alt="foto 14" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="14"><img src="imagens/15.jpeg" alt="foto 15" loading="lazy"/><div class="gal-ov"></div></div>
+      </div>
 
-            Obrigado(a) por fazer parte da minha história.
-        </p>
-
+      <div class="gal-strip gal-strip-last">
+        <div class="gal-item gal-tall" data-li="15"><img src="imagens/16.jpeg" alt="foto 16" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="16"><img src="imagens/17.jpeg" alt="foto 17" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item" data-li="17"><img src="imagens/18.jpeg" alt="foto 18" loading="lazy"/><div class="gal-ov"></div></div>
+        <div class="gal-item gal-tall" data-li="18"><img src="imagens/19.jpeg" alt="foto 19" loading="lazy"/><div class="gal-ov"></div></div>
+      </div>
     </section>
 
-    <!-- CONTADOR -->
-    <section class="counter">
-
-        <h2>Estamos Juntos Há</h2>
-
-        <div id="relationship-time"></div>
-
+    <!-- MESSAGE -->
+    <section class="msg-sec">
+      <div class="msg-card">
+        <div class="msg-quote">"</div>
+        <blockquote class="msg-text">
+          Desde o dia em que nos encontramos, minha vida ficou mais bonita.
+          Voce trouxe amor, felicidade e momentos que jamais esquecerei.
+          Cada sorriso seu e a minha musica favorita, e cada dia ao seu lado
+          e uma nova aventura que eu quero viver para sempre.
+          <br/><br/>
+          Obrigado por fazer parte da minha historia. Te amo infinitamente.
+        </blockquote>
+        <div class="msg-sig">
+          <svg viewBox="0 0 100 90" fill="none" width="18" height="18">
+            <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C36 5 44 10 50 18 C56 10 64 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z" fill="#1DB954"/>
+          </svg>
+          Com todo meu amor
+        </div>
+      </div>
     </section>
 
-    <!-- RETROSPECTIVA -->
-    <section class="timeline">
+    <!-- TIMELINE -->
+    <section class="tl-sec">
+      <div class="sec-header">
+        <h2 class="sec-title">Nossa Retrospectiva</h2>
+        <p class="sec-sub">Os momentos que definiram a nossa historia</p>
+      </div>
+      <div class="tl-wrap">
+        <div class="tl-line"></div>
 
-        <h2>Nossa Retrospectiva ✨</h2>
-
-        <div class="timeline-item">
-            <span>❤️</span>
+        <div class="tl-item tl-left">
+          <div class="tl-dot"><span>1</span></div>
+          <div class="tl-card">
+            <span class="tl-ico">💬</span>
             <h3>Primeira Conversa</h3>
-            <p>O dia em que tudo começou.</p>
+            <p>O dia em que tudo comecou. Uma mensagem simples que mudou tudo.</p>
+          </div>
         </div>
 
-        <div class="timeline-item">
-            <span>🌹</span>
+        <div class="tl-item tl-right">
+          <div class="tl-dot"><span>2</span></div>
+          <div class="tl-card">
+            <span class="tl-ico">🌹</span>
             <h3>Primeiro Encontro</h3>
-            <p>Um momento inesquecível.</p>
+            <p>Um momento inesquecivel. O nervosismo, o sorriso, o inicio de tudo.</p>
+          </div>
         </div>
 
-        <div class="timeline-item">
-            <span>💍</span>
-            <h3>Namoro</h3>
-            <p>O início da nossa história.</p>
+        <div class="tl-item tl-left">
+          <div class="tl-dot"><span>3</span></div>
+          <div class="tl-card">
+            <span class="tl-ico">💑</span>
+            <h3>Namoro Oficial</h3>
+            <p>O inicio oficial da nossa historia. O dia mais feliz.</p>
+          </div>
         </div>
 
-        <div class="timeline-item">
-            <span>✨</span>
-            <h3>Hoje</h3>
-            <p>E ainda estamos escrevendo nosso futuro.</p>
+        <div class="tl-item tl-right">
+          <div class="tl-dot tl-dot-green"><span>4</span></div>
+          <div class="tl-card tl-card-special">
+            <span class="tl-ico">🎂</span>
+            <h3>Aniversario</h3>
+            <p>Hoje celebramos mais um capitulo dessa historia linda que escrevemos juntos.</p>
+          </div>
         </div>
-
+      </div>
     </section>
 
-    <!-- RODAPÉ -->
-    <footer>
-        Feito com ❤️ para você
+    <!-- FOOTER -->
+    <footer class="footer">
+      <svg class="footer-heart" viewBox="0 0 100 90" fill="none">
+        <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C36 5 44 10 50 18 C56 10 64 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z" fill="#1DB954"/>
+      </svg>
+      <p class="footer-main">Feito com amor para voce</p>
+      <p class="footer-sub">Nossa historia continua sendo escrita a cada dia</p>
     </footer>
 
-    <script src="js/script.js"></script>
+  </div><!-- /site -->
 
+  <!-- LIGHTBOX -->
+  <div class="lb" id="lb">
+    <button class="lb-close" id="lbClose"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+    <img id="lbImg" src="" alt="" />
+    <button class="lb-prev" id="lbPrev"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
+    <button class="lb-next" id="lbNext"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
